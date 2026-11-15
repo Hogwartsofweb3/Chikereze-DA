@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 3v18h18'/><path d='m19 9-5 5-4-4-3 3'/></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Theme initialiser before paint to avoid flash -->
+    <script>
+      (function() {
+        const saved = localStorage.getItem('theme');
+        const prefDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+
+    <title>Timothy John Chikereze — Data Analyst &amp; BI Specialist</title>
+    <meta name="description" content="Portfolio of Timothy John Chikereze. Transforming complex datasets into clear, actionable business revenue insights through SQL, Power BI, and advanced analytics." />
+    <meta property="og:title" content="Timothy John Chikereze — Data Analyst &amp; BI Specialist" />
+    <meta property="og:description" content="SQL, Analytics, and Business Impact. Transforming complex datasets into clear, actionable insights." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-dark-bg text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
