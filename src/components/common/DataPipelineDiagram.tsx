@@ -80,25 +80,25 @@ export const DataPipelineDiagram: React.FC = () => {
   const currentStage = STAGES.find((s) => s.id === activeStage) || STAGES[1];
 
   return (
-    <div className="rounded-3xl bg-dark-surface/90 dark:bg-dark-surface/90 bg-white border border-slate-800 dark:border-slate-800 border-slate-200 shadow-xl p-6 sm:p-8">
+    <div className="rounded-3xl bg-white dark:bg-dark-surface/90 border border-slate-200 dark:border-slate-800 shadow-md p-6 sm:p-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
         <div>
-          <span className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">
+          <span className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">
             End-to-End Methodology
           </span>
           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
             Data Lineage &amp; Transformation Architecture
           </h3>
         </div>
-        <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 self-start sm:self-auto">
+        <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/20 self-start sm:self-auto">
           Click any phase to inspect
         </span>
       </div>
 
       {/* Interactive Step Timeline */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
-        {STAGES.map((stage, idx) => {
+        {STAGES.map((stage) => {
           const isActive = stage.id === activeStage;
           return (
             <button
@@ -106,20 +106,20 @@ export const DataPipelineDiagram: React.FC = () => {
               onClick={() => setActiveStage(stage.id)}
               className={`p-3.5 rounded-2xl border text-left transition-all relative overflow-hidden flex flex-col justify-between ${
                 isActive
-                  ? 'bg-dark-bg border-cyan-500 shadow-cyan-glow'
-                  : 'bg-dark-surface/60 border-slate-800/80 hover:border-slate-700'
+                  ? 'bg-cyan-50/70 dark:bg-dark-bg border-cyan-500 shadow-sm dark:shadow-cyan-glow'
+                  : 'bg-slate-50 dark:bg-dark-surface/60 border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700'
               }`}
             >
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-mono font-bold text-slate-500">{stage.stepNumber}</span>
-                <div className={`p-1.5 rounded-lg ${isActive ? 'bg-cyan-500/20' : 'bg-slate-900'}`}>
+                <span className="text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500">{stage.stepNumber}</span>
+                <div className={`p-1.5 rounded-lg ${isActive ? 'bg-cyan-500/20 text-cyan-600 dark:text-cyan-400' : 'bg-slate-200 dark:bg-slate-900 text-slate-600 dark:text-slate-400'}`}>
                   {stage.icon}
                 </div>
               </div>
               <div>
                 <div
                   className={`text-xs font-bold leading-tight ${
-                    isActive ? 'text-cyan-400' : 'text-slate-300'
+                    isActive ? 'text-cyan-700 dark:text-cyan-400' : 'text-slate-700 dark:text-slate-300'
                   }`}
                 >
                   {stage.title}
@@ -132,29 +132,29 @@ export const DataPipelineDiagram: React.FC = () => {
       </div>
 
       {/* Selected Stage Deep-Dive Banner */}
-      <div className="p-5 rounded-2xl bg-dark-bg/80 border border-slate-800/90 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="p-5 rounded-2xl bg-slate-50 dark:bg-dark-bg/80 border border-slate-200 dark:border-slate-800/90 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-2">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-bold text-cyan-400">
+            <span className="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400">
               PHASE {currentStage.stepNumber} //
             </span>
-            <span className="text-sm font-bold text-white">{currentStage.title}</span>
+            <span className="text-sm font-bold text-slate-900 dark:text-white">{currentStage.title}</span>
           </div>
-          <ul className="space-y-1.5 text-xs text-slate-300">
+          <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
             {currentStage.details.map((detail, dIdx) => (
               <li key={dIdx} className="flex items-start gap-2">
-                <ChevronRight size={14} className="text-cyan-400 shrink-0 mt-0.5" />
+                <ChevronRight size={14} className="text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
                 <span>{detail}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 shrink-0 md:max-w-xs">
-          <div className="text-[10px] uppercase font-mono text-cyan-400 font-bold mb-1">
+        <div className="p-4 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shrink-0 md:max-w-xs shadow-sm dark:shadow-none">
+          <div className="text-[10px] uppercase font-mono text-cyan-600 dark:text-cyan-400 font-bold mb-1">
             Verified Deliverable
           </div>
-          <div className="text-xs text-slate-300 font-medium">
+          <div className="text-xs text-slate-700 dark:text-slate-300 font-medium">
             {currentStage.deliverable}
           </div>
         </div>

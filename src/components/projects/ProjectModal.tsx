@@ -42,11 +42,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[92vh] rounded-3xl bg-dark-surface dark:bg-dark-surface bg-white border border-cyan-500/30 shadow-2xl overflow-y-auto flex flex-col"
+        className="relative w-full max-w-3xl max-h-[92vh] rounded-3xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-cyan-500/30 shadow-2xl overflow-y-auto flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Sticky Header */}
-        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-dark-surface/90 dark:bg-dark-surface/90 bg-white/90 backdrop-blur-md border-b border-slate-800">
+        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-white/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono font-medium border border-cyan-500/20 uppercase">
               {project.category}
@@ -94,13 +94,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           )}
 
           {/* 3-Phase Navigation Tabs */}
-          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-950 border border-slate-800">
+          <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
             <button
               onClick={() => setActiveTab('context')}
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-mono font-semibold transition-all ${
                 activeTab === 'context'
-                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
               }`}
             >
               <FileText size={14} />
@@ -110,8 +110,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               onClick={() => setActiveTab('pipeline')}
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-mono font-semibold transition-all ${
                 activeTab === 'pipeline'
-                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
               }`}
             >
               <Code2 size={14} />
@@ -121,8 +121,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               onClick={() => setActiveTab('deliverables')}
               className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-mono font-semibold transition-all ${
                 activeTab === 'deliverables'
-                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
               }`}
             >
               <Award size={14} />
@@ -138,7 +138,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 {project.metrics.map((m, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-dark-bg dark:bg-dark-bg bg-slate-50 border border-slate-800/80 text-center"
+                    className="p-3.5 rounded-2xl bg-slate-50 dark:bg-dark-bg border border-slate-200 dark:border-slate-800/80 text-center"
                   >
                     <div className="text-[10px] uppercase font-mono text-slate-500">{m.label}</div>
                     <div className="text-base sm:text-lg font-bold text-cyan-400 font-mono mt-0.5">
@@ -154,7 +154,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   Problem Framing &amp; Objective
                 </h4>
                 {project.description.map((p, idx) => (
-                  <p key={idx} className="text-sm text-slate-300 leading-relaxed">
+                  <p key={idx} className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                     {p}
                   </p>
                 ))}
@@ -167,7 +167,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </h4>
                 <div className="grid grid-cols-1 gap-2.5">
                   {project.highlights.map((h, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300">
                       <CheckCircle2 size={16} className="text-cyan-400 shrink-0 mt-0.5" />
                       <span>{h}</span>
                     </div>
@@ -229,7 +229,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   {project.stack.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 rounded-lg bg-dark-bg text-cyan-300 text-xs font-mono border border-slate-800"
+                      className="px-3 py-1 rounded-lg bg-slate-100 dark:bg-dark-bg text-cyan-600 dark:text-cyan-300 text-xs font-mono border border-slate-200 dark:border-slate-800"
                     >
                       {tech}
                     </span>
@@ -242,7 +242,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Footer with Drive Link & GitHub */}
-        <div className="px-6 py-4 bg-slate-950/70 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <div className="px-6 py-4 bg-slate-50/80 dark:bg-slate-950/70 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             {project.links.drive && (
               <a

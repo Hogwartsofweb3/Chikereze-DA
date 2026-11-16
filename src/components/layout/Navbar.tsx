@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-dark-bg/85 dark:bg-dark-bg/85 bg-white/85 backdrop-blur-md border-b border-slate-800/80 dark:border-slate-800/80 border-slate-200/80 shadow-md py-3'
+          ? 'bg-white/90 dark:bg-dark-bg/90 backdrop-blur-md border-b border-slate-200/90 dark:border-slate-800/80 shadow-sm dark:shadow-md py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -57,29 +57,29 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => scrollToSection('home')}
             className="flex items-center gap-2.5 group text-left"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-500 p-[1.5px] shadow-cyan-glow">
-              <div className="w-full h-full rounded-[10px] bg-dark-bg dark:bg-dark-bg bg-white flex items-center justify-center font-mono font-black text-cyan-400 group-hover:text-teal-300 transition-colors">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-500 p-[1.5px] shadow-sm dark:shadow-cyan-glow">
+              <div className="w-full h-full rounded-[10px] bg-white dark:bg-dark-bg flex items-center justify-center font-mono font-black text-cyan-600 dark:text-cyan-400 group-hover:text-teal-500 dark:group-hover:text-teal-300 transition-colors">
                 TJ
               </div>
             </div>
             <div>
               <div className="text-sm font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
                 <span>Timothy John</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400 inline-block animate-pulse" />
               </div>
-              <div className="text-[10px] font-mono text-cyan-400/80 uppercase tracking-widest">
+              <div className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400/80 uppercase tracking-widest">
                 Data Analyst
               </div>
             </div>
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 p-1 rounded-full bg-dark-surface/70 dark:bg-dark-surface/70 bg-slate-100/80 border border-slate-800/80 dark:border-slate-800/80 border-slate-200/80 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 p-1 rounded-full bg-slate-100/90 dark:bg-dark-surface/70 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md shadow-sm dark:shadow-none">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-400 dark:text-slate-300 hover:text-cyan-400 dark:hover:text-cyan-400 hover:bg-cyan-500/10 transition-all"
+                className="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-500/10 transition-all"
               >
                 {item.label}
               </button>
@@ -91,20 +91,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Quick Cmd+K Button */}
             <button
               onClick={onOpenCommandPalette}
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-dark-surface dark:bg-dark-surface bg-slate-100 border border-slate-800 dark:border-slate-800 border-slate-200 text-xs text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all"
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm dark:shadow-none transition-all"
               title="Quick Search (Ctrl + K)"
             >
-              <Command size={13} className="text-cyan-400" />
+              <Command size={13} className="text-cyan-500 dark:text-cyan-400" />
               <span className="font-mono text-[11px]">⌘K</span>
             </button>
 
             {/* Dark / Light Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl bg-dark-surface dark:bg-dark-surface bg-slate-100 border border-slate-800 dark:border-slate-800 border-slate-200 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+              className="p-2 rounded-xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm dark:shadow-none transition-colors"
               title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {isDark ? <Sun size={17} className="text-amber-400" /> : <Moon size={17} className="text-cyan-500" />}
+              {isDark ? <Sun size={17} className="text-amber-400" /> : <Moon size={17} className="text-cyan-600" />}
             </button>
 
             {/* View CV in new tab */}
@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               href="/Timothy_John_Chikereze_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 text-xs font-mono font-medium transition-all"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-transparent border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 text-xs font-mono font-medium shadow-sm dark:shadow-none transition-all"
               title="View CV in new tab"
             >
               <FileText size={13} />
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Get In Touch CTA */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/25 text-xs font-semibold transition-all"
+              className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-400/40 dark:border-cyan-500/30 text-cyan-700 dark:text-cyan-400 hover:bg-cyan-500/20 text-xs font-semibold shadow-sm dark:shadow-none transition-all"
             >
               <span>Hire Timothy</span>
               <ArrowUpRight size={14} />
@@ -131,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-3 p-4 rounded-2xl bg-dark-surface/95 dark:bg-dark-surface/95 bg-white/95 border border-slate-800 backdrop-blur-xl space-y-2 shadow-2xl animate-in slide-in-from-top-2">
+          <div className="md:hidden mt-3 p-4 rounded-2xl bg-white/95 dark:bg-dark-surface/95 border border-slate-200 dark:border-slate-800 backdrop-blur-xl space-y-2 shadow-2xl animate-in slide-in-from-top-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -149,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   scrollToSection(item.id);
                   setMobileMenuOpen(false);
                 }}
-                className="w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-slate-300 dark:text-slate-300 text-slate-700 hover:bg-cyan-500/10 hover:text-cyan-400 transition-colors"
+                className="w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
                 {item.label}
               </button>
@@ -158,17 +158,17 @@ export const Navbar: React.FC<NavbarProps> = ({
               href="/Timothy_John_Chikereze_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-cyan-400 hover:bg-cyan-500/10 transition-colors"
+              className="block w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/10 transition-colors"
             >
               📄 View Official CV (PDF)
             </a>
-            <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
               <button
                 onClick={() => {
                   onOpenCommandPalette();
                   setMobileMenuOpen(false);
                 }}
-                className="flex items-center gap-2 text-xs text-cyan-400"
+                className="flex items-center gap-2 text-xs text-cyan-600 dark:text-cyan-400"
               >
                 <Command size={14} />
                 <span>Open Command Palette (⌘K)</span>

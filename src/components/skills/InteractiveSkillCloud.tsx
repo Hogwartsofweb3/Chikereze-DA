@@ -104,8 +104,8 @@ export const InteractiveSkillCloud: React.FC<InteractiveSkillCloudProps> = ({ is
               key={idx}
               className={`absolute transition-transform duration-75 text-xs font-mono font-semibold px-2.5 py-1 rounded-full border ${
                 isFront
-                  ? 'bg-dark-surface dark:bg-dark-surface bg-white text-cyan-400 border-cyan-500/50 shadow-cyan-glow'
-                  : 'bg-dark-surface/50 dark:bg-dark-surface/50 bg-slate-100/60 text-slate-400 border-slate-800'
+                  ? 'bg-white dark:bg-dark-surface text-cyan-700 dark:text-cyan-400 border-cyan-400 dark:border-cyan-500/50 shadow-sm dark:shadow-cyan-glow'
+                  : 'bg-slate-100/90 dark:bg-dark-surface/50 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800'
               }`}
               style={{
                 transform: `translate3d(${px}px, ${py}px, 0) scale(${scale})`,

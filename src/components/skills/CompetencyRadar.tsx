@@ -15,7 +15,11 @@ const METRICS: Metric[] = [
   { name: 'Relational Schemas', value: 90, description: 'Entity relationship modeling, normalization, foreign key consistency.' },
 ];
 
-export const CompetencyRadar: React.FC = () => {
+interface CompetencyRadarProps {
+  isDark?: boolean;
+}
+
+export const CompetencyRadar: React.FC<CompetencyRadarProps> = ({ isDark = true }) => {
   const [activeMetric, setActiveMetric] = useState<Metric | null>(null);
 
   const size = 320;
@@ -59,7 +63,7 @@ export const CompetencyRadar: React.FC = () => {
                 key={lIdx}
                 d={levelPoints}
                 fill="none"
-                stroke="rgba(255, 255, 255, 0.08)"
+                stroke={isDark ? "rgba(255, 255, 255, 0.09)" : "rgba(15, 23, 42, 0.12)"}
                 strokeWidth="1"
               />
             );
@@ -75,7 +79,7 @@ export const CompetencyRadar: React.FC = () => {
                 y1={center}
                 x2={x}
                 y2={y}
-                stroke="rgba(255, 255, 255, 0.08)"
+                stroke={isDark ? "rgba(255, 255, 255, 0.09)" : "rgba(15, 23, 42, 0.12)"}
                 strokeWidth="1"
               />
             );
@@ -84,10 +88,10 @@ export const CompetencyRadar: React.FC = () => {
           {/* Shaded Radar Area */}
           <path
             d={polygonPath}
-            fill="rgba(6, 182, 212, 0.22)"
-            stroke="#06b6d4"
+            fill={isDark ? "rgba(6, 182, 212, 0.22)" : "rgba(6, 182, 212, 0.25)"}
+            stroke={isDark ? "#06b6d4" : "#0891b2"}
             strokeWidth="2.5"
-            className="transition-all duration-300 drop-shadow-[0_0_12px_rgba(6,182,212,0.5)]"
+            className="transition-all duration-300 drop-shadow-[0_0_12px_rgba(6,182,212,0.4)]"
           />
 
           {/* Interactive Data Points */}
@@ -106,8 +110,8 @@ export const CompetencyRadar: React.FC = () => {
                   cx={x}
                   cy={y}
                   r={isHovered ? 6 : 4}
-                  fill={isHovered ? '#14b8a6' : '#06b6d4'}
-                  stroke="#080a0f"
+                  fill={isHovered ? '#14b8a6' : (isDark ? '#06b6d4' : '#0891b2')}
+                  stroke={isDark ? "#080a0f" : "#ffffff"}
                   strokeWidth="2"
                   className="transition-all duration-200"
                 />
@@ -128,7 +132,13 @@ export const CompetencyRadar: React.FC = () => {
                 textAnchor="middle"
                 dominantBaseline="middle"
                 className={`text-[10px] font-mono transition-colors ${
-                  isHovered ? 'fill-cyan-400 font-bold' : 'fill-slate-400'
+                  isHovered
+                    ? isDark
+                      ? 'fill-cyan-400 font-bold'
+                      : 'fill-cyan-700 font-bold'
+                    : isDark
+                    ? 'fill-slate-400'
+                    : 'fill-slate-600'
                 }`}
               >
                 {m.name}
@@ -139,16 +149,16 @@ export const CompetencyRadar: React.FC = () => {
       </div>
 
       {/* Metric Tooltip Description */}
-      <div className="w-full mt-2 p-3 rounded-xl bg-dark-bg/80 border border-slate-800 text-center min-h-[58px] flex flex-col justify-center">
+      <div className="w-full mt-2 p-3 rounded-xl bg-slate-50 dark:bg-dark-bg/80 border border-slate-200 dark:border-slate-800 text-center min-h-[58px] flex flex-col justify-center">
         {activeMetric ? (
           <div>
-            <div className="text-xs font-mono font-bold text-cyan-400">
+            <div className="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400">
               {activeMetric.name} // {activeMetric.value}% Proficiency
             </div>
-            <div className="text-[11px] text-slate-300 mt-0.5">{activeMetric.description}</div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{activeMetric.description}</div>
           </div>
         ) : (
-          <div className="text-[11px] text-slate-500 font-mono">
+          <div className="text-[11px] text-slate-400 dark:text-slate-500 font-mono">
             Hover over any vertex to inspect core competency breakdown
           </div>
         )}

@@ -12,8 +12,7 @@
     <script>
       (function() {
         const saved = localStorage.getItem('theme');
-        const prefDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (prefDark ? 'dark' : 'light');
+        const theme = saved === 'dark' ? 'dark' : 'light';
         document.documentElement.dataset.theme = theme;
         if (theme === 'dark') {
           document.documentElement.classList.add('dark');
@@ -30,7 +29,7 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="bg-dark-bg text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200 transition-colors duration-300">
+  <body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-800 dark:selection:text-cyan-200 transition-colors duration-300">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

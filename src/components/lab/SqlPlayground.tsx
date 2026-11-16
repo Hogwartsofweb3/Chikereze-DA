@@ -95,10 +95,10 @@ export const SqlPlayground: React.FC = () => {
   };
 
   return (
-    <div className="rounded-3xl bg-dark-surface/90 dark:bg-dark-surface/90 bg-white border border-slate-800 dark:border-slate-800 border-slate-200 shadow-xl overflow-hidden">
+    <div className="rounded-3xl bg-white dark:bg-dark-surface/90 border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden">
       
       {/* Playground Header */}
-      <div className="px-6 py-4 bg-slate-900/90 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+      <div className="px-6 py-4 bg-slate-800 dark:bg-slate-900/90 border-b border-slate-700 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <Terminal size={17} className="text-cyan-400" />
           <span className="text-sm font-bold text-slate-100 font-mono">
@@ -147,18 +147,18 @@ export const SqlPlayground: React.FC = () => {
       </div>
 
       {/* Results Table */}
-      <div className="p-4 sm:p-6 border-t border-slate-800/80">
-        <div className="flex items-center justify-between mb-3 text-xs font-mono text-slate-400">
+      <div className="p-4 sm:p-6 border-t border-slate-200 dark:border-slate-800/80 bg-white dark:bg-transparent">
+        <div className="flex items-center justify-between mb-3 text-xs font-mono text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-2">
-            <Table size={14} className="text-cyan-400" />
+            <Table size={14} className="text-cyan-500 dark:text-cyan-400" />
             <span>Query Results ({activeResults.rows.length} rows returned)</span>
           </div>
-          <span className="text-[10px] text-emerald-400">Execution time: 0.008s</span>
+          <span className="text-[10px] text-emerald-600 dark:text-emerald-400">Execution time: 0.008s</span>
         </div>
 
-        <div className="overflow-x-auto rounded-xl border border-slate-800">
+        <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
           <table className="w-full text-left text-xs font-mono">
-            <thead className="bg-slate-900 text-slate-300 border-b border-slate-800">
+            <thead className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800">
               <tr>
                 {activeResults.columns.map((col, idx) => (
                   <th key={idx} className="px-4 py-2.5 font-bold uppercase tracking-wider text-[11px]">
@@ -167,11 +167,11 @@ export const SqlPlayground: React.FC = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
               {activeResults.rows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-cyan-500/5 transition-colors">
+                <tr key={rIdx} className="hover:bg-cyan-50/60 dark:hover:bg-cyan-500/5 transition-colors">
                   {row.map((val, cIdx) => (
-                    <td key={cIdx} className="px-4 py-2 text-slate-300">
+                    <td key={cIdx} className="px-4 py-2 text-slate-700 dark:text-slate-300">
                       {val}
                     </td>
                   ))}

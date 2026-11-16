@@ -50,24 +50,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
           <div className="lg:col-span-7 flex flex-col items-start z-10">
             
             {/* Terminal status pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
-              <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block -ml-3" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 text-cyan-700 dark:text-cyan-400 text-xs font-mono mb-6 shadow-sm dark:shadow-none">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block -ml-3" />
               <span>Available for Data Analyst &amp; BI Roles</span>
             </div>
 
             {/* Terminal prompt vibe */}
-            <div className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-2">
-              <Terminal size={14} className="text-cyan-400" />
+            <div className="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400 mb-2">
+              <Terminal size={14} className="text-cyan-600 dark:text-cyan-400" />
               <span>~/chikereze/analytics</span>
-              <span className="text-slate-600 dark:text-slate-500">function</span>
-              <span className="text-teal-400">solve_business_impact()</span>
+              <span className="text-slate-400 dark:text-slate-500">function</span>
+              <span className="text-teal-600 dark:text-teal-400">solve_business_impact()</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-4">
               Timothy John <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-600 via-teal-500 to-emerald-600 dark:from-cyan-400 dark:via-teal-300 dark:to-emerald-400 bg-clip-text text-transparent">
                 Chikereze
               </span>
             </h1>
@@ -79,23 +79,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
 
             {/* Triad Badges & Location */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-dark-surface/60 dark:bg-dark-surface/60 bg-slate-100 border border-cyan-500/20 text-xs font-medium text-slate-300 dark:text-slate-300 text-slate-700">
-                <span className="text-cyan-400">#</span> SQL
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-dark-surface/60 border border-slate-200 dark:border-cyan-500/20 text-xs font-medium text-slate-700 dark:text-slate-300 shadow-sm dark:shadow-none">
+                <span className="text-cyan-600 dark:text-cyan-400 font-bold">#</span> SQL
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-dark-surface/60 dark:bg-dark-surface/60 bg-slate-100 border border-teal-500/20 text-xs font-medium text-slate-300 dark:text-slate-300 text-slate-700">
-                <span className="text-teal-400">#</span> Analytics
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-dark-surface/60 border border-slate-200 dark:border-teal-500/20 text-xs font-medium text-slate-700 dark:text-slate-300 shadow-sm dark:shadow-none">
+                <span className="text-teal-600 dark:text-teal-400 font-bold">#</span> Analytics
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-dark-surface/60 dark:bg-dark-surface/60 bg-slate-100 border border-emerald-500/20 text-xs font-medium text-slate-300 dark:text-slate-300 text-slate-700">
-                <span className="text-emerald-400">#</span> Business Impact
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-dark-surface/60 border border-slate-200 dark:border-emerald-500/20 text-xs font-medium text-slate-700 dark:text-slate-300 shadow-sm dark:shadow-none">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">#</span> Business Impact
               </div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-400 ml-1">
-                <MapPin size={13} className="text-cyan-400" />
+              <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 ml-1">
+                <MapPin size={13} className="text-cyan-600 dark:text-cyan-400" />
                 <span>Owerri, Imo State, Nigeria</span>
               </div>
             </div>
 
             {/* Subtitle / Pitch */}
-            <p className="text-base sm:text-lg text-slate-400 dark:text-slate-300 mb-8 max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-xl leading-relaxed">
               Transforming messy relational datasets into executive clarity, interactive Power BI dashboards, and commercial revenue insights. FUTO Computer Science graduate &amp; TechBridge DA Fellow.
             </p>
 
@@ -103,7 +103,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold text-sm shadow-cyan-glow hover:shadow-cyan-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
+                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold text-sm shadow-md dark:shadow-cyan-glow hover:shadow-lg dark:hover:shadow-cyan-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 <span>Explore Case Studies</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -111,7 +111,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
 
               <button
                 onClick={() => scrollToSection('lab')}
-                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-surface/80 dark:bg-dark-surface/80 bg-white border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 text-sm font-semibold transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-dark-surface/80 border border-slate-200 dark:border-cyan-500/30 text-cyan-600 dark:text-cyan-400 hover:bg-slate-50 dark:hover:bg-cyan-500/10 text-sm font-semibold shadow-sm dark:shadow-none transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 <FlaskConical size={16} />
                 <span>Interactive Data Lab</span>
@@ -122,22 +122,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
                 href="/Timothy_John_Chikereze_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-3 rounded-xl border border-slate-700/60 dark:border-slate-700/60 text-slate-300 hover:text-white hover:border-slate-500 text-sm font-medium transition-all"
+                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white dark:bg-transparent border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-white hover:border-cyan-400 dark:hover:border-slate-500 text-sm font-medium shadow-sm dark:shadow-none transition-all"
                 title="Open Timothy's CV in new tab"
               >
-                <FileText size={15} className="text-cyan-400" />
+                <FileText size={15} className="text-cyan-600 dark:text-cyan-400" />
                 <span>View CV (PDF)</span>
               </a>
             </div>
 
             {/* Social handles bar */}
-            <div className="flex items-center gap-4 text-slate-400">
-              <span className="text-xs uppercase tracking-wider font-mono text-slate-500">Connect:</span>
+            <div className="flex items-center gap-4 text-slate-500 dark:text-slate-400">
+              <span className="text-xs uppercase tracking-wider font-mono text-slate-400 dark:text-slate-500">Connect:</span>
               <a
                 href="https://www.linkedin.com/in/chikerezejt"
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-dark-surface/80 dark:bg-dark-surface/80 bg-slate-100 hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-800 transition-colors"
+                className="p-2 rounded-lg bg-white dark:bg-dark-surface/80 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none transition-colors"
                 title="LinkedIn Profile"
               >
                 <Linkedin size={18} />
@@ -146,7 +146,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
                 href="https://x.com/chikerezejt"
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-dark-surface/80 dark:bg-dark-surface/80 bg-slate-100 hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-800 transition-colors"
+                className="p-2 rounded-lg bg-white dark:bg-dark-surface/80 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none transition-colors"
                 title="X (Twitter) Profile"
               >
                 <Twitter size={18} />
@@ -155,14 +155,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
                 href="https://github.com/Chikerezejt"
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-dark-surface/80 dark:bg-dark-surface/80 bg-slate-100 hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-800 transition-colors"
+                className="p-2 rounded-lg bg-white dark:bg-dark-surface/80 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none transition-colors"
                 title="GitHub Profile"
               >
                 <Github size={18} />
               </a>
               <a
                 href="mailto:chikerezejt@gmail.com"
-                className="p-2 rounded-lg bg-dark-surface/80 dark:bg-dark-surface/80 bg-slate-100 hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-800 transition-colors"
+                className="p-2 rounded-lg bg-white dark:bg-dark-surface/80 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none transition-colors"
                 title="Send Email"
               >
                 <Mail size={18} />

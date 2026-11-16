@@ -66,11 +66,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
       <div
-        className="w-full max-w-xl rounded-2xl bg-dark-surface dark:bg-dark-surface bg-white border border-cyan-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[75vh]"
+        className="w-full max-w-xl rounded-2xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-cyan-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[75vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-800 dark:border-slate-800 border-slate-200">
+        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-slate-800">
           <Search size={18} className="text-cyan-400 shrink-0" />
           <input
             type="text"
@@ -78,11 +78,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Type a command or search projects (e.g., SQL, Power BI, Capstone)..."
-            className="w-full bg-transparent text-sm text-slate-100 dark:text-slate-100 text-slate-800 placeholder-slate-500 focus:outline-none"
+            className="w-full bg-transparent text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none"
           />
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             <X size={16} />
           </button>
@@ -102,7 +102,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   toggleTheme();
                   onClose();
                 }}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-400 text-slate-300 dark:text-slate-300 text-slate-700 transition-colors text-left"
+                className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 text-slate-700 dark:text-slate-300 transition-colors text-left"
               >
                 <div className="flex items-center gap-2.5">
                   {isDark ? <Sun size={15} className="text-amber-400" /> : <Moon size={15} className="text-cyan-400" />}
@@ -113,7 +113,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
               <button
                 onClick={copyEmail}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-400 text-slate-300 dark:text-slate-300 text-slate-700 transition-colors text-left"
+                className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 text-slate-700 dark:text-slate-300 transition-colors text-left"
               >
                 <div className="flex items-center gap-2.5">
                   {copied ? <Check size={15} className="text-emerald-400" /> : <Copy size={15} />}
@@ -127,7 +127,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   scrollToSection('lab');
                   onClose();
                 }}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-400 text-slate-300 dark:text-slate-300 text-slate-700 transition-colors text-left"
+                className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 text-slate-700 dark:text-slate-300 transition-colors text-left"
               >
                 <div className="flex items-center gap-2.5">
                   <FlaskConical size={15} className="text-teal-400" />
@@ -151,7 +151,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                     onSelectProject(project);
                     onClose();
                   }}
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-400 text-slate-300 dark:text-slate-300 text-slate-700 transition-colors text-left"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 text-slate-700 dark:text-slate-300 transition-colors text-left"
                 >
                   <div className="flex items-center gap-2.5">
                     <BarChart3 size={15} className="text-cyan-400 shrink-0" />
@@ -188,7 +188,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                     scrollToSection(item.id);
                     onClose();
                   }}
-                  className="px-3 py-2 rounded-xl text-left hover:bg-cyan-500/10 hover:text-cyan-400 text-slate-400 hover:text-slate-100 transition-colors"
+                  className="px-3 py-2 rounded-xl text-left hover:bg-cyan-500/10 hover:text-cyan-600 dark:hover:text-cyan-400 text-slate-500 dark:text-slate-400 transition-colors"
                 >
                   # {item.label}
                 </button>
@@ -199,7 +199,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         </div>
 
         {/* Footer shortcuts helper */}
-        <div className="px-4 py-2 bg-slate-950/60 dark:bg-slate-950/60 bg-slate-100 border-t border-slate-800 text-[10px] font-mono text-slate-500 flex items-center justify-between">
+        <div className="px-4 py-2 bg-slate-100 dark:bg-slate-950/60 border-t border-slate-200 dark:border-slate-800 text-[10px] font-mono text-slate-500 flex items-center justify-between">
           <span>Press ESC to close</span>
           <span>Timothy John Chikereze • Portfolio</span>
         </div>
