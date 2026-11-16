@@ -5,7 +5,8 @@ import {
   Command, 
   Sun, 
   Moon, 
-  ArrowUpRight
+  ArrowUpRight,
+  FileText
 } from 'lucide-react';
 import { scrollToSection } from '../../lib/utils';
 
@@ -106,10 +107,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isDark ? <Sun size={17} className="text-amber-400" /> : <Moon size={17} className="text-cyan-500" />}
             </button>
 
+            {/* View CV in new tab */}
+            <a
+              href="/Timothy_John_Chikereze_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-700 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 text-xs font-mono font-medium transition-all"
+              title="View CV in new tab"
+            >
+              <FileText size={13} />
+              <span>CV</span>
+            </a>
+
             {/* Get In Touch CTA */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="hidden lg:flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/25 text-xs font-semibold transition-all"
+              className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/25 text-xs font-semibold transition-all"
             >
               <span>Hire Timothy</span>
               <ArrowUpRight size={14} />
@@ -141,6 +154,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {item.label}
               </button>
             ))}
+            <a
+              href="/Timothy_John_Chikereze_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-left px-3 py-2 rounded-xl text-sm font-medium text-cyan-400 hover:bg-cyan-500/10 transition-colors"
+            >
+              📄 View Official CV (PDF)
+            </a>
             <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
               <button
                 onClick={() => {

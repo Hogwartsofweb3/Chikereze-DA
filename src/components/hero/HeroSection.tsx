@@ -4,13 +4,14 @@ import { DataSphereCanvas } from './DataSphereCanvas';
 import { Floating3DCards } from './Floating3DCards';
 import { 
   ArrowRight, 
-  Download, 
+  FileText, 
   Terminal, 
   MapPin, 
   Github, 
   Linkedin, 
   Mail,
-  FlaskConical
+  FlaskConical,
+  Twitter
 } from 'lucide-react';
 import { scrollToSection } from '../../lib/utils';
 
@@ -95,7 +96,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
 
             {/* Subtitle / Pitch */}
             <p className="text-base sm:text-lg text-slate-400 dark:text-slate-300 mb-8 max-w-xl leading-relaxed">
-              Transforming messy relational datasets into executive clarity, interactive Power BI dashboards, and commercial revenue insights. FUTO Computer Science graduate &amp; TechBridge Fellow.
+              Transforming messy relational datasets into executive clarity, interactive Power BI dashboards, and commercial revenue insights. FUTO Computer Science graduate &amp; TechBridge DA Fellow.
             </p>
 
             {/* Action Buttons */}
@@ -116,22 +117,40 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
                 <span>Interactive Data Lab</span>
               </button>
 
+              {/* View CV in new tab without download */}
               <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('contact');
-                }}
+                href="/Timothy_John_Chikereze_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-3 rounded-xl border border-slate-700/60 dark:border-slate-700/60 text-slate-300 hover:text-white hover:border-slate-500 text-sm font-medium transition-all"
+                title="Open Timothy's CV in new tab"
               >
-                <Download size={15} />
-                <span>Resume / CV</span>
+                <FileText size={15} className="text-cyan-400" />
+                <span>View CV (PDF)</span>
               </a>
             </div>
 
             {/* Social handles bar */}
             <div className="flex items-center gap-4 text-slate-400">
               <span className="text-xs uppercase tracking-wider font-mono text-slate-500">Connect:</span>
+              <a
+                href="https://www.linkedin.com/in/chikerezejt"
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-dark-surface/80 dark:bg-dark-surface/80 bg-slate-100 hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-800 transition-colors"
+                title="LinkedIn Profile"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://x.com/chikerezejt"
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-dark-surface/80 dark:bg-dark-surface/80 bg-slate-100 hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-800 transition-colors"
+                title="X (Twitter) Profile"
+              >
+                <Twitter size={18} />
+              </a>
               <a
                 href="https://github.com/Chikerezejt"
                 target="_blank"
@@ -140,15 +159,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isDark }) => {
                 title="GitHub Profile"
               >
                 <Github size={18} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-lg bg-dark-surface/80 dark:bg-dark-surface/80 bg-slate-100 hover:text-cyan-400 hover:border-cyan-500/40 border border-slate-800 transition-colors"
-                title="LinkedIn Profile"
-              >
-                <Linkedin size={18} />
               </a>
               <a
                 href="mailto:chikerezejt@gmail.com"

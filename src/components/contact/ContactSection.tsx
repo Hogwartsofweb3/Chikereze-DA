@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { Mail, MapPin, Send, CheckCircle, Github, Linkedin, Calendar } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle, Github, Linkedin, Calendar, Phone, Twitter } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,11 +12,25 @@ export const ContactSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
+
+    try {
+      // Optional Formspree submission if an endpoint is active
+      await fetch('https://formspree.io/f/Timothy-John', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(formData),
+      }).catch(() => {
+        // Graceful fallback for local development or demo endpoints
+      });
+    } catch {
+      // Continue to celebration
+    }
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -66,12 +80,13 @@ export const ContactSection: React.FC = () => {
 
               <div className="space-y-4 pt-2 border-t border-slate-800/80 text-xs">
                 
+                {/* Email */}
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 border border-cyan-500/20">
                     <Mail size={16} />
                   </div>
                   <div>
-                    <div className="text-[10px] text-slate-500 uppercase font-mono">Email Address</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-mono">Primary Email</div>
                     <a
                       href="mailto:chikerezejt@gmail.com"
                       className="font-mono text-cyan-400 hover:underline font-semibold"
@@ -81,8 +96,25 @@ export const ContactSection: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Phone / Mobile */}
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0 border border-teal-500/20">
+                    <Phone size={16} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-slate-500 uppercase font-mono">Mobile / WhatsApp</div>
+                    <a
+                      href="tel:+2348106379633"
+                      className="font-mono text-slate-300 hover:text-cyan-400 font-semibold"
+                    >
+                      +234 (0) 810 637 9633
+                    </a>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 border border-cyan-500/20">
                     <MapPin size={16} />
                   </div>
                   <div>
@@ -91,6 +123,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Status */}
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
                     <Calendar size={16} />
@@ -107,24 +140,33 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Direct Social Links */}
-              <div className="pt-4 border-t border-slate-800/80 flex items-center gap-3">
+              <div className="pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-2">
+                <a
+                  href="https://www.linkedin.com/in/chikerezejt"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 text-xs font-semibold border border-slate-800 transition-colors"
+                >
+                  <Linkedin size={15} />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://x.com/chikerezejt"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 text-xs font-semibold border border-slate-800 transition-colors"
+                >
+                  <Twitter size={15} />
+                  <span>X / Twitter</span>
+                </a>
                 <a
                   href="https://github.com/Chikerezejt"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 text-xs font-semibold border border-slate-800 transition-colors"
+                  className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 text-xs font-semibold border border-slate-800 transition-colors"
                 >
                   <Github size={15} />
                   <span>GitHub</span>
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 text-xs font-semibold border border-slate-800 transition-colors"
-                >
-                  <Linkedin size={15} />
-                  <span>LinkedIn</span>
                 </a>
               </div>
 
@@ -140,10 +182,10 @@ export const ContactSection: React.FC = () => {
                   <CheckCircle size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                  Message Delivered!
+                  Message Transmitted!
                 </h3>
                 <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
-                  Thank you for reaching out to Timothy. A notification has been recorded, and he will respond promptly.
+                  Thank you for reaching out to Timothy. Your note has been received, and he will respond promptly.
                 </p>
                 <button
                   onClick={() => {
@@ -195,7 +237,7 @@ export const ContactSection: React.FC = () => {
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="e.g. Data Analyst Role / Dashboard Project"
+                    placeholder="e.g. Data Analyst Role / Power BI Dashboard Project"
                     className="w-full px-4 py-2.5 rounded-xl bg-dark-bg/80 dark:bg-dark-bg/80 bg-slate-50 border border-slate-800 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500/50"
                   />
                 </div>

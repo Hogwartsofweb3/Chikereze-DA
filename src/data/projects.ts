@@ -31,7 +31,8 @@ export const projects: Project[] = [
     ],
     stack: ['Power BI', 'DAX', 'Advanced Excel', 'Data Modeling', 'Workforce Analytics'],
     links: {
-      github: 'https://github.com/Hogwartsofweb3/Chikereze-DA',
+      github: 'https://github.com/Chikerezejt',
+      drive: 'https://drive.google.com/drive/folders/1giDXL4xa1Kc4PeL0E0NcU85Ng3kFe2kh',
     },
     image: dashboardImg,
     daxSnippet: `-- Measure: Overall Turnover Rate %
@@ -91,7 +92,8 @@ DIVIDE(
     ],
     stack: ['SQL', 'PostgreSQL', 'Excel XLOOKUP', 'Relational Schemas', 'Revenue Audit'],
     links: {
-      github: 'https://github.com/Hogwartsofweb3/Chikereze-DA',
+      github: 'https://github.com/Chikerezejt',
+      drive: 'https://drive.google.com/drive/folders/1giDXL4xa1Kc4PeL0E0NcU85Ng3kFe2kh',
     },
     sqlSnippet: `-- Audit net revenue by category with discount adjustments
 SELECT 
@@ -135,7 +137,8 @@ ORDER BY Net_Revenue_NGN DESC;`,
     ],
     stack: ['SQL', 'MySQL', 'Database Indexing', 'Data Aggregation'],
     links: {
-      github: 'https://github.com/Hogwartsofweb3/Chikereze-DA',
+      github: 'https://github.com/Chikerezejt',
+      drive: 'https://drive.google.com/drive/folders/1giDXL4xa1Kc4PeL0E0NcU85Ng3kFe2kh',
     },
     sqlSnippet: `-- Geographic customer concentration with window ratio
 SELECT 
@@ -179,7 +182,8 @@ ORDER BY Total_Customers DESC;`,
     ],
     stack: ['Advanced Excel', 'Data Cleaning', 'Statistical Imputation', 'Text Parsing'],
     links: {
-      github: 'https://github.com/Hogwartsofweb3/Chikereze-DA',
+      github: 'https://github.com/Chikerezejt',
+      drive: 'https://drive.google.com/drive/folders/1XmA2qANZqFAR81TDzMMzdprxttFnegwu',
     },
     businessImpact:
       'Converted unreliable, error-prone spreadsheets into a pristine, analysis-ready foundation suitable for machine learning and executive dashboards.',

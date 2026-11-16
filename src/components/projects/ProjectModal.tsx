@@ -12,7 +12,9 @@ import {
   BarChart3,
   FileText,
   Code2,
-  Award
+  Award,
+  ExternalLink,
+  FolderArchive
 } from 'lucide-react';
 
 interface ProjectModalProps {
@@ -91,7 +93,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           )}
 
-          {/* 3-Phase Navigation Tabs (Shaun Lin Inspiration) */}
+          {/* 3-Phase Navigation Tabs */}
           <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-slate-950 border border-slate-800">
             <button
               onClick={() => setActiveTab('context')}
@@ -239,17 +241,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         </div>
 
-        {/* Modal Footer */}
-        <div className="px-6 py-4 bg-slate-950/70 border-t border-slate-800 flex items-center justify-between">
-          <a
-            href={project.links.github || 'https://github.com/Hogwartsofweb3/Chikereze-DA'}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:text-cyan-400 hover:bg-slate-700 text-xs font-semibold transition-colors"
-          >
-            <Github size={15} />
-            <span>View Source on GitHub</span>
-          </a>
+        {/* Modal Footer with Drive Link & GitHub */}
+        <div className="px-6 py-4 bg-slate-950/70 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            {project.links.drive && (
+              <a
+                href={project.links.drive}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/25 text-xs font-semibold transition-colors"
+                title="Open project files and raw datasets in Google Drive"
+              >
+                <FolderArchive size={14} />
+                <span>Open Project Drive</span>
+                <ExternalLink size={12} />
+              </a>
+            )}
+
+            <a
+              href={project.links.github || 'https://github.com/Chikerezejt'}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 text-slate-200 hover:text-cyan-400 hover:bg-slate-700 text-xs font-semibold transition-colors"
+            >
+              <Github size={14} />
+              <span>Timothy&apos;s GitHub</span>
+            </a>
+          </div>
 
           <button
             onClick={onClose}

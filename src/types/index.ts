@@ -22,6 +22,7 @@ export interface Project {
   links: {
     live?: string;
     github?: string;
+    drive?: string;
     report?: string;
   };
   image?: string;
