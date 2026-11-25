@@ -184,7 +184,7 @@ ORDER BY Total_Customers DESC;`,
     stack: ['PostgreSQL', 'SQL', 'Excel', 'Exploratory Data Analysis', 'Data Cleaning'],
     links: {
       github: 'https://github.com/Chikerezejt/Airbnb-Data-Analysis',
-      kaggle: 'https://www.kaggle.com/datasets/timothykerejohn/airbnb-data-analysis',
+      kaggle: 'https://www.kaggle.com/datasets/chikerezejt/airbnb-data-analysis/data',
     },
     sqlSnippet: `-- Average vs median listing price by city (USD-standardised)
 SELECT
