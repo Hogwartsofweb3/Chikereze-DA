@@ -155,6 +155,54 @@ ORDER BY Total_Customers DESC;`,
       'Enabled strategic leadership to quantify customer density across international territories, accelerating localized sales operations.',
   },
   {
+    id: 'airbnb-eda-sql',
+    title: 'Airbnb Global Listings & Host Performance Analysis',
+    tagline: 'SQL exploratory analysis of 279,712 listings and 5.37M reviews across 10 cities.',
+    role: 'Data Analyst — SQL & EDA',
+    year: '2026',
+    category: 'sql',
+    featured: true,
+    accent: '#ff5a5f',
+    summary:
+      'Exploratory SQL analysis of Airbnb listing and review data across ten international cities — uncovering pricing patterns, host performance, neighbourhood concentration, and review behaviour.',
+    description: [
+      'This project analyses 279,712 Airbnb listings and over 5.37 million customer reviews across Paris, New York, Sydney, Cape Town, Rome, Bangkok, Hong Kong, Istanbul, Mexico City, and Rio de Janeiro.',
+      "I standardised listing prices to USD using ECB exchange rates, removed exact duplicate review records using PostgreSQL's ctid system column, and preserved rows with missing review scores to avoid analytical bias. Each business question is answered with SQL and interpreted with business context and recommendations.",
+    ],
+    highlights: [
+      'Paris holds 23.1% of all listings (64,690 of 279,712) — the most concentrated single-city supply in the dataset.',
+      'Sydney has the highest average listing price at $149.46 USD; Istanbul the lowest at $10.57 USD — a 14× pricing gap.',
+      '46% of host response-time records are NULL, identified and documented as a material data-quality limitation.',
+      'Standardised prices across 10 local currencies to USD using ECB reference rates for valid cross-city comparison.',
+    ],
+    metrics: [
+      { label: 'Listings Analysed', value: '279,712' },
+      { label: 'Reviews Processed', value: '5.37M' },
+      { label: 'Cities Covered', value: '10' },
+      { label: 'Price Range (USD avg)', value: '$10–$149' },
+    ],
+    stack: ['PostgreSQL', 'SQL', 'Excel', 'Exploratory Data Analysis', 'Data Cleaning'],
+    links: {
+      github: 'https://github.com/Chikerezejt/Airbnb-Data-Analysis',
+      kaggle: 'https://www.kaggle.com/datasets/timothykerejohn/airbnb-data-analysis',
+    },
+    sqlSnippet: `-- Average vs median listing price by city (USD-standardised)
+SELECT
+    city,
+    ROUND(AVG(price_usd)::numeric, 2)        AS avg_price_usd,
+    ROUND(
+      PERCENTILE_CONT(0.5)
+        WITHIN GROUP (ORDER BY price_usd)::numeric,
+      2
+    )                                         AS median_price_usd
+FROM airbnb_listings
+WHERE price_usd IS NOT NULL
+GROUP BY city
+ORDER BY avg_price_usd DESC;`,
+    businessImpact:
+      'Identified pricing disparities, supply concentration, and host responsiveness gaps across ten markets — providing the analytical basis for host acquisition strategy, pricing guidance, and customer experience improvements.',
+  },
+  {
     id: 'synthetic-workforce-cleaning',
     title: 'Workforce Data Cleaning & Imputation Pipeline',
     tagline: 'Statistical imputation and normalization across 1,020 messy employee records.',

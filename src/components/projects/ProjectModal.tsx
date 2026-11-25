@@ -14,7 +14,8 @@ import {
   Code2,
   Award,
   ExternalLink,
-  FolderArchive
+  FolderArchive,
+  Database
 } from 'lucide-react';
 
 interface ProjectModalProps {
@@ -258,6 +259,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </a>
             )}
 
+            {project.links.kaggle && (
+              <a
+                href={project.links.kaggle}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/25 text-xs font-semibold transition-colors"
+                title="View dataset on Kaggle"
+              >
+                <span className="font-bold text-[11px]">K</span>
+                <span>Kaggle Dataset</span>
+                <ExternalLink size={12} />
+              </a>
+            )}
+
             <a
               href={project.links.github || 'https://github.com/Chikerezejt'}
               target="_blank"
@@ -265,7 +280,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 text-slate-200 hover:text-cyan-400 hover:bg-slate-700 text-xs font-semibold transition-colors"
             >
               <Github size={14} />
-              <span>Timothy&apos;s GitHub</span>
+              <span>View on GitHub</span>
             </a>
           </div>
 

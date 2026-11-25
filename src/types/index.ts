@@ -24,6 +24,7 @@ export interface Project {
     github?: string;
     drive?: string;
     report?: string;
+    kaggle?: string;
   };
   image?: string;
   sqlSnippet?: string;

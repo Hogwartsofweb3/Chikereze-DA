@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { projects } from '../../data/projects';
 import { ProjectCard } from './ProjectCard';
+import { GitHubRepos } from './GitHubRepos';
 import { Project, ProjectCategory } from '../../types';
+import { Github } from 'lucide-react';
 
 interface ProjectsSectionProps {
   onSelectProject: (project: Project) => void;
@@ -68,6 +70,34 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
               onOpenModal={onSelectProject}
             />
           ))}
+        </div>
+
+        {/* GitHub Live Repos — auto-updates when Tim pushes */}
+        <div className="mt-20">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-mono text-cyan-600 dark:text-cyan-400 uppercase tracking-widest mb-2">
+                <Github size={13} />
+                <span>Live from GitHub</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">
+                More Work on GitHub
+              </h3>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400 max-w-md">
+                All public repositories, pulled live. Updates automatically whenever a new project is pushed.
+              </p>
+            </div>
+            <a
+              href="https://github.com/Chikerezejt"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 dark:bg-slate-700 text-slate-200 hover:text-cyan-400 hover:bg-slate-700 dark:hover:bg-slate-600 text-xs font-semibold transition-colors self-start sm:self-auto shrink-0"
+            >
+              <Github size={14} />
+              View Full Profile
+            </a>
+          </div>
+          <GitHubRepos />
         </div>
 
       </div>
