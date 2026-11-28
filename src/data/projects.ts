@@ -65,7 +65,7 @@ DIVIDE(
   },
   {
     id: 'retail-sales-capstone',
-    title: 'Retail Sales & Revenue Performance Engine',
+    title: 'Retail Sales and Revenue Analysis',
     tagline: 'Multi-table SQL & Excel pipeline auditing ₦42M+ in retail transactions.',
     role: 'Lead Data Analyst',
     year: '2026',
@@ -112,7 +112,7 @@ ORDER BY Net_Revenue_NGN DESC;`,
   },
   {
     id: 'global-customer-sql',
-    title: 'Multi-National Customer Segmentation Engine',
+    title: 'Customer Segmentation Analysis',
     tagline: 'Querying 8,000 enterprise customer profiles across 20 global regions.',
     role: 'Database & SQL Specialist',
     year: '2026',

@@ -38,7 +38,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ isDark = true }) =
             Technical Skill Matrix &amp; Radar
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-xl">
-            Battle-tested analytical competencies backed by verified project proofs, capstone audits, and data models.
+            Core analytical skills backed by verified project proofs, capstone audits, and data models.
           </p>
         </div>
 

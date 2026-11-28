@@ -132,7 +132,7 @@ export const AboutBento: React.FC = () => {
             <div>
               <div className="flex items-center gap-2 text-xs font-mono text-cyan-600 dark:text-cyan-400 mb-4">
                 <GraduationCap size={16} />
-                <span>EDUCATION &amp; PEDIGREE</span>
+                <span>EDUCATION &amp; CERTIFICATIONS</span>
               </div>
               <div className="space-y-4">
                 <div>
